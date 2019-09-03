@@ -3,6 +3,7 @@ package com.stackroute.springbootneo4jexample1.model;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 @NodeEntity
+// Entity for adding to Favourites
 public class WishlistProduct {
     @GraphId
     private Long id;
