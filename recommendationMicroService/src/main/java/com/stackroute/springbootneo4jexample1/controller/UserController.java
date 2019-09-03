@@ -48,7 +48,7 @@ public class UserController {
         responseEntity=new ResponseEntity("Succesfully Created", HttpStatus.CREATED);
         return responseEntity;
     }
-    @DeleteMapping("/removefav")
+    @PostMapping("/removefav")
     public ResponseEntity<?> deleteTrackByname(@RequestBody WishlistProduct wish)  {
        Collection<WishlistProduct> wishlist;
         wishlist = userService.deleteWLProductByName(wish);
