@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.List;
-
+//Using lombok
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
