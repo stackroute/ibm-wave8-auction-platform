@@ -15,6 +15,7 @@ import java.util.List;
 public class Product {
 
     @Id
+    //Product Id
     int id;
     String productName;
     List<ProductDetails> details;
