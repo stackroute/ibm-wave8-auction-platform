@@ -34,7 +34,7 @@ public class ProductController {
         }
         return responseEntity;
     }
-
+//In order to see all saved products
     @GetMapping("product")
     public ResponseEntity<?> getAllProducts(){
         ResponseEntity responseEntity;
