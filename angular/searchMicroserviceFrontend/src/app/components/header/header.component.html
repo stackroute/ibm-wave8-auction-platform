@@ -7,7 +7,7 @@
                     </div>
             
           <span id="branding" [routerLink]="['/']">e-Auction</span>
-
+  
             <section class="search-center">
                 <mat-form-field appearance="standard" class="searchbox">
                     <mat-label>Search</mat-label>
@@ -16,6 +16,7 @@
                     
                 </mat-form-field>
             </section>
+            <mat-chip  class="navLinks" selected [routerLink]="['/search']" >Search</mat-chip>
             <!-- <form class="example-form" id="form">
               <mat-form-field class="example-full-width">
                 <input  matInput type="search" #searchString>
@@ -30,9 +31,10 @@
           <section class="txt-center">
 
             <mat-chip-list>
-              <mat-chip  class="navLinks" selected [routerLink]="['/home']" >HelpDesk</mat-chip>
+              
+              <mat-chip  class="navLinks" selected [routerLink]="['/helpdesk']" >HelpDesk</mat-chip>
               <mat-icon class="pipes">remove</mat-icon>
-              <mat-chip  class="navLinks" selected [routerLink]="['/playlist']">Login/SignUp</mat-chip>
+              <mat-chip  class="navLinks" selected [routerLink]="['/login']">Login/SignUp</mat-chip>
             </mat-chip-list>
 
           </section>
