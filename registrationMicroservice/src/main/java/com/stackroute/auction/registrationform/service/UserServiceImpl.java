@@ -1,5 +1,8 @@
 package com.stackroute.auction.registrationform.service;
 
+import com.stackroute.auction.registrationform.exception.ItemAlreadyExistsException;
+import com.stackroute.auction.registrationform.exception.UserAlreadyExistsException;
+import com.stackroute.auction.registrationform.exception.UserNotFoundException;
 import com.stackroute.auction.registrationform.model.RentItems;
 import com.stackroute.auction.registrationform.model.User;
 import com.stackroute.auction.registrationform.repository.UserRepository;
@@ -31,13 +34,20 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private SequenceGeneratorService sequenceGeneratorService;
     @Override
-    public User saveUser(User user)  {
-        user.setRentItems(new ArrayList<>());
-            User savedUser =userRepository.save(user);
-            if(savedUser == null) {
+    public User saveUser(User user)  throws UserAlreadyExistsException {
+        User alreadySavedUser=getUserByEmail(user.getUserEmail());
+        if(alreadySavedUser!=null)
+        {
+            throw new UserAlreadyExistsException("User already Exists");
+        }
+        else {
+            user.setRentItems(new ArrayList<>());
+            User savedUser = userRepository.save(user);
+            if (savedUser == null) {
                 savedUser = null;
             }
             return savedUser;
+        }
     }
     @Override
     public List<User> getAllUsers() {
@@ -45,8 +55,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User updateUser(User user) {
+    public User updateUser(User user) throws UserNotFoundException  {
        User  result=getUserByEmail(user.getUserEmail());
+       if(result==null)
+       {
+           throw new UserNotFoundException("User not found");
+       }
        result.setUserName(user.getUserName());
         result.setUserEmail(user.getUserEmail());
         result.setUserPhoneNumber(user.getUserPhoneNumber());
@@ -55,8 +69,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean deleteUser(String email) {
-       userRepository.delete(getUserByEmail(email));
+    public boolean deleteUser(String email) throws UserNotFoundException{
+        User  result=getUserByEmail(email);
+        if(result==null)
+        {
+            throw new UserNotFoundException("User not found");
+        }
+       userRepository.delete(result);
        return true;
     }
 
@@ -68,8 +87,12 @@ public class UserServiceImpl implements UserService{
         return savedUser;
     }
     @Override
-    public User saveItems(RentItems rentItems, String email) {
+    public User saveItems(RentItems rentItems, String email) throws UserNotFoundException{
         User user=getUserByEmail(email);
+        if(user==null)
+        {
+            throw new UserNotFoundException("User Not Found");
+        }
         rentItems.setItemid(sequenceGeneratorService.getNextSequence(RentItems.SEQUENCE_NAME));
         user.getRentItems().add(rentItems);
         userRepository.save(user);

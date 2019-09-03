@@ -3,6 +3,7 @@ package com.stackroute.auction.registrationform.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.auction.registrationform.exception.UserAlreadyExistsException;
+import com.stackroute.auction.registrationform.exception.UserNotFoundException;
 import com.stackroute.auction.registrationform.model.RentItems;
 import com.stackroute.auction.registrationform.model.User;
 import com.stackroute.auction.registrationform.service.UserService;
@@ -34,25 +35,42 @@ public class UserController {
 
 
     @PostMapping("/user")
-    public ResponseEntity addUser(@RequestBody User user) throws JsonProcessingException , UserAlreadyExistsException {
+    public ResponseEntity addUser(@RequestBody User user) throws JsonProcessingException{
         ResponseEntity responseEntity;
-        System.out.println(user);
-        userService.saveUser(user);
-       this.KafkaTemplate.send(TOPIC,new ObjectMapper().writeValueAsString(user));
-       Map<Object,Object> model=new HashMap<>();
-       model.put("message","User registered successfully");
-       return ok(model);
+        try {
+
+            System.out.println(user);
+            userService.saveUser(user);
+            responseEntity=new ResponseEntity("successfully created", HttpStatus.CREATED);
+            this.KafkaTemplate.send(TOPIC, new ObjectMapper().writeValueAsString(user));
+            Map<Object, Object> model = new HashMap<>();
+            model.put("message", "User registered successfully");
+            return ok(model);
+        }
+        catch (Exception e)
+        {
+            responseEntity=new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);
+        }
+        return responseEntity;
     }
-    @PostMapping("/rentItems/{email}/{id}")
-    public ResponseEntity addRentItemsa(@RequestBody RentItems rentItems, @PathVariable(name = "email") String email) throws JsonProcessingException {
+    @PostMapping("/rentItems/{email}")
+    public ResponseEntity addRentItemsa(@RequestBody RentItems rentItems, @PathVariable(name = "email") String email) throws JsonProcessingException, UserNotFoundException {
         ResponseEntity responseEntity;
-        userService.saveItems(rentItems, email);
-       this.KafkaTemplate.send(TOPIC,new ObjectMapper().writeValueAsString(rentItems));
-        Map<Object,Object> model=new HashMap<>();
-        model.put("message","User items are added  successfully");
-        return ok(model);
-        /*responseEntity = new ResponseEntity<String>("Succesfully xyzz", HttpStatus.OK);
-        return responseEntity;*/
+        try {
+            userService.saveItems(rentItems, email);
+             responseEntity = new ResponseEntity<String>("Succesfully xyzz", HttpStatus.OK);
+            this.KafkaTemplate.send(TOPIC, new ObjectMapper().writeValueAsString(rentItems));
+            Map<Object, Object> model = new HashMap<>();
+            model.put("message", "User items are added  successfully");
+            return ok(model);
+        }
+        catch (Exception e)
+        {
+            responseEntity=new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);
+        }
+
+
+        return responseEntity;
 
 
     }
@@ -76,13 +94,21 @@ public class UserController {
    }
 
     @PutMapping("update")
-    public ResponseEntity updateUsers(@RequestBody User user) throws JsonProcessingException {
+    public ResponseEntity updateUsers(@RequestBody User user) throws JsonProcessingException, UserNotFoundException {
         ResponseEntity responseEntity;
+        try{
            userService.updateUser(user);
+            responseEntity=new ResponseEntity("successfully updated", HttpStatus.OK);
            this.KafkaTemplate.send(TOPIC,new ObjectMapper().writeValueAsString(user));
            Map<Object,Object> model=new HashMap<>();
            model.put("message","User details updated successfully");
            return ok(model);
+        }
+        catch (Exception e)
+        {
+            responseEntity=new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);
+        }
+        return responseEntity;
     }
     @PutMapping("/updateRentItems/{email}/{id}")
     public ResponseEntity updateRentItems(@PathVariable(name = "email") String email,@RequestBody RentItems rentItems,@PathVariable(name = "id") Long id) throws JsonProcessingException {
@@ -94,11 +120,16 @@ public class UserController {
         return ok(model);
     }
     @DeleteMapping("/delete/{email}")
-    public ResponseEntity deleteUser(@PathVariable(name = "email") String email)
-    {
+    public ResponseEntity deleteUser(@PathVariable(name = "email") String email) throws UserNotFoundException {
         ResponseEntity responseEntity;
-        userService.deleteUser(email);
-        responseEntity = new ResponseEntity<String>("Succesfully Deleted", HttpStatus.OK);
+        try {
+            userService.deleteUser(email);
+            responseEntity = new ResponseEntity("Succesfully Deleted", HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            responseEntity=new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);
+        }
         return responseEntity;
 
     }
