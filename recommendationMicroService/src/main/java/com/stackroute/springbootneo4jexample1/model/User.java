@@ -7,6 +7,7 @@ import org.neo4j.ogm.annotation.Relationship;
 import java.util.List;
 
 @NodeEntity
+//Entity for User which has a LIKES relationship with Category Entity
 public class User {
 
     @GraphId
