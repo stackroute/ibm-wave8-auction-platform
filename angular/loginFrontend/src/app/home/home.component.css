@@ -1,0 +1,5 @@
+.card-container {
+    flex-wrap: wrap;
+    padding-top: 125px;
+    padding-left: 75px;
+}
