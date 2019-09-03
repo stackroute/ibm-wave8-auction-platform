@@ -5,29 +5,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.auction.registrationform.exception.UserAlreadyExistsException;
 import com.stackroute.auction.registrationform.model.RentItems;
 import com.stackroute.auction.registrationform.model.User;
-import com.stackroute.auction.registrationform.repository.UserRepository;
 import com.stackroute.auction.registrationform.service.UserService;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.slf4j.Logger;
 
-import javax.naming.Name;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 import static org.springframework.http.ResponseEntity.ok;
 @CrossOrigin(origins = "*")
@@ -57,7 +43,7 @@ public class UserController {
        model.put("message","User registered successfully");
        return ok(model);
     }
-    @PostMapping("/rentItems/{email}")
+    @PostMapping("/rentItems/{email}/{id}")
     public ResponseEntity addRentItemsa(@RequestBody RentItems rentItems, @PathVariable(name = "email") String email) throws JsonProcessingException {
         ResponseEntity responseEntity;
         userService.saveItems(rentItems, email);
@@ -98,10 +84,10 @@ public class UserController {
            model.put("message","User details updated successfully");
            return ok(model);
     }
-    @PutMapping("/updateRentItems/{email}")
-    public ResponseEntity updateRentItems(@PathVariable(name = "email") String email,@RequestBody RentItems rentItems) throws JsonProcessingException {
+    @PutMapping("/updateRentItems/{email}/{id}")
+    public ResponseEntity updateRentItems(@PathVariable(name = "email") String email,@RequestBody RentItems rentItems,@PathVariable(name = "id") Long id) throws JsonProcessingException {
         ResponseEntity responseEntity;
-        userService.updateRentItems(rentItems, email);
+        userService.updateRentItems(rentItems, email,id);
         this.KafkaTemplate.send(TOPIC,new ObjectMapper().writeValueAsString(rentItems));
         Map<Object,Object> model=new HashMap<>();
         model.put("message","Rent details updated successfully");
@@ -117,11 +103,11 @@ public class UserController {
 
     }
 
-    @DeleteMapping("/deleteRentItems/{email}")
-    public ResponseEntity deleteUserRent(@PathVariable(name = "email") String email)
+    @DeleteMapping("/deleteRentItems/{email}/{id}")
+    public ResponseEntity deleteUserRent(@PathVariable(name = "email") String email ,@PathVariable(name = "id") Long id)
     {
         ResponseEntity responseEntity;
-        userService.deleteItems(email);
+        userService.deleteItems(email,id);
         responseEntity = new ResponseEntity<String>("Succesfully Deleted", HttpStatus.OK);
         return responseEntity;
     }

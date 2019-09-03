@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -29,9 +28,11 @@ public class UserServiceImpl implements UserService{
     }
     @Autowired
     private MongoTemplate mongoTemplate;
-
+    @Autowired
+    private SequenceGeneratorService sequenceGeneratorService;
     @Override
     public User saveUser(User user)  {
+        user.setRentItems(new ArrayList<>());
             User savedUser =userRepository.save(user);
             if(savedUser == null) {
                 savedUser = null;
@@ -45,16 +46,12 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User updateUser(User user) {
-
        User  result=getUserByEmail(user.getUserEmail());
-
-        result.setUserName(user.getUserName());
+       result.setUserName(user.getUserName());
         result.setUserEmail(user.getUserEmail());
         result.setUserPhoneNumber(user.getUserPhoneNumber());
         result=userRepository.save(user);
-
         return result;
-
     }
 
     @Override
@@ -71,11 +68,17 @@ public class UserServiceImpl implements UserService{
         return savedUser;
     }
     @Override
-    public User saveItems(RentItems rentItems,String email) {
-        User savedUser=getUserByEmail(email);
-        savedUser.setRentItems(rentItems);
+    public User saveItems(RentItems rentItems, String email) {
+        User user=getUserByEmail(email);
+        rentItems.setItemid(sequenceGeneratorService.getNextSequence(RentItems.SEQUENCE_NAME));
+        user.getRentItems().add(rentItems);
+        userRepository.save(user);
+        return user;
+
+       /* User savedUser=getUserByEmail(email);
+        savedUser.setRentItems((List<RentItems>) rentItems);
         userRepository.save(savedUser);
-        return savedUser;
+        return savedUser;*/
     }
     @Override
     public List<RentItems> getAllItems(String email ) {
@@ -87,23 +90,38 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User updateRentItems(RentItems rentItems,String email) {
+    public User updateRentItems(RentItems rentItems,String email,Long itemId) {
       User result=getUserByEmail(email);
-      result.getRentItems().setItemDurationOfRent(rentItems.getItemDurationOfRent());
-      userRepository.save(result);
-      return result;
-    }
 
+    ArrayList<RentItems> rentItems1=result.getRentItems();
+    for(int i=0;i<rentItems1.size();i++)
+    {
+        if(rentItems1.get(i).getItemid()==itemId)
+        {
+            result.getRentItems().get(i).setItemDurationOfRent(rentItems.getItemDurationOfRent());
+
+        }
+    }
+    userRepository.save(result);
+    return result;
+
+    }
     @Override
-    public boolean deleteItems(String email) {
+    public boolean deleteItems(String email,Long itemId) {
         User result=getUserByEmail(email);
-        result.setRentItems(null);
+       // result.setRentItems(null);
+        ArrayList<RentItems> rentItems1=result.getRentItems();
+        for(int i=0;i<rentItems1.size();i++)
+        {
+            if(rentItems1.get(i).getItemid()==itemId)
+            {
+                rentItems1.remove(i);
+            }
+        }
+        result.setRentItems(rentItems1);
         userRepository.save(result);
         return true;
     }
-
-
-
 
 }
 
