@@ -46,6 +46,7 @@ public class ProductController {
         }
         return responseEntity;
     }
+    //In order to search a product by its Id
     @GetMapping("product/{id}")
     public ResponseEntity<?> getProductById(@PathVariable("id") int id){
         ResponseEntity responseEntity;
