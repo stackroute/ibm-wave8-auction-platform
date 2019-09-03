@@ -40,5 +40,9 @@ h3{
 .card{
   display: inline-flex;
   flex-wrap: wrap;
-  
+  padding-top: 120px;
+}
+.text1{
+  color: black;
+  background-color: beige;
 }

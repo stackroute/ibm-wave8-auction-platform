@@ -14,13 +14,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  clickSearch(value) {
+  clickSearch(value):any {
     
-    value = value.toLowerCase();
-    console.log(value);
+    // value = value.toLowerCase();
+    // console.log(value);
    
 
-    this.router.navigateByUrl("/search/"+value);
+    // this.router.navigateByUrl("/search/"+value);
+
+    this.router.navigate(['/search/',value]);
 
   }
 }

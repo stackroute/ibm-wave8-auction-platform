@@ -15,19 +15,6 @@ export class SearchComponent implements OnInit {
     private router:Router ) { }
 
   ngOnInit() {
-
-//     const myVar = this.route.snapshot.paramMap.get('value');
-  
-
-//     console.log("Search in scomp " + myVar);
-//    this.searchService.getSearch(myVar).subscribe(data => {
-//    console.log("This too works..");
-//     this.cropList=data;
-//     console.log("Id is " + this.cropList[0].farms[0].location);
-    
-   
-// });
-
     this.route.paramMap.subscribe((params: ParamMap) => 
       {
         let searchString = params.get('value');

@@ -2,12 +2,12 @@
     <nav class="navbar">
       <mat-toolbar >
         <mat-toolbar-row >  
-                <div class="navbar-header">  
-                        <img src="./assets/auctionlogo.png" class="img-rounded" alt="muzix-logo" width="50px" height="50px">
-                    </div>
-            
-          <span id="branding" [routerLink]="['/']">e-Auction</span>
-  
+          <a routerLink='app-home' routerLinkActive="active">
+                         <div class="navbar-header"> 
+                          <img src="./assets/auctionlogo.png" class="img-rounded" alt="muzix-logo" width="50px" height="50px"><span id="branding" [routerLink]="['/']">e-Auction</span>
+                         </div>
+         </a>
+       
             <section class="search-center">
                 <mat-form-field appearance="standard" class="searchbox">
                     <mat-label>Search</mat-label>
@@ -17,6 +17,7 @@
                 </mat-form-field>
             </section>
             <mat-chip  class="navLinks" selected [routerLink]="['/search']" >Search</mat-chip>
+            <!-- <a routerLink="search/:value" routerLinkActive="active">Search</a> -->
             <!-- <form class="example-form" id="form">
               <mat-form-field class="example-full-width">
                 <input  matInput type="search" #searchString>
@@ -31,7 +32,6 @@
           <section class="txt-center">
 
             <mat-chip-list>
-              
               <mat-chip  class="navLinks" selected [routerLink]="['/helpdesk']" >HelpDesk</mat-chip>
               <mat-icon class="pipes">remove</mat-icon>
               <mat-chip  class="navLinks" selected [routerLink]="['/login']">Login/SignUp</mat-chip>
