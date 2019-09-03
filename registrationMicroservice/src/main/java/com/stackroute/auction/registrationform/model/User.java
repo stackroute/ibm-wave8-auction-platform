@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class User {
 
     @Id
-    //private String UserId;
+    
     private String userEmail;
     private String userName;
     private String userPhoneNumber;
