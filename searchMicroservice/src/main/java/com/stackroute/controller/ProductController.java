@@ -61,7 +61,7 @@ public class ProductController {
 
 
 
-
+//In order to search a product by its name
     @GetMapping("productname/{name}")
     public ResponseEntity<?> getProductByName(@PathVariable String name) {
         ResponseEntity responseEntity;
