@@ -19,6 +19,7 @@ public class Product {
     int id;
     //Product name
     String productName;
+    //List of details of product
     List<ProductDetails> details;
 
 }
