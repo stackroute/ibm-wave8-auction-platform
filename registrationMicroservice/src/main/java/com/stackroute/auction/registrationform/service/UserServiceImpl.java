@@ -1,4 +1,4 @@
-package com.stackroute.auction.registrationform.service;
+ package com.stackroute.auction.registrationform.service;
 
 import com.stackroute.auction.registrationform.exception.ItemAlreadyExistsException;
 import com.stackroute.auction.registrationform.exception.UserAlreadyExistsException;
@@ -98,10 +98,7 @@ public class UserServiceImpl implements UserService{
         userRepository.save(user);
         return user;
 
-       /* User savedUser=getUserByEmail(email);
-        savedUser.setRentItems((List<RentItems>) rentItems);
-        userRepository.save(savedUser);
-        return savedUser;*/
+     
     }
     @Override
     public List<RentItems> getAllItems(String email ) {
@@ -132,7 +129,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean deleteItems(String email,Long itemId) {
         User result=getUserByEmail(email);
-       // result.setRentItems(null);
+       
         ArrayList<RentItems> rentItems1=result.getRentItems();
         for(int i=0;i<rentItems1.size();i++)
         {
