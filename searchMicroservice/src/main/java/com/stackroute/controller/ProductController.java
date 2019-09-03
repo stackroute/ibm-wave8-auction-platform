@@ -22,7 +22,7 @@ public class ProductController {
     public ProductController(ProductService productService){
         this.productService = productService;
     }
-
+//Saving the Product
     @PostMapping("product")
     public ResponseEntity<?> saveProduct(@RequestBody Product product){
         ResponseEntity responseEntity;
