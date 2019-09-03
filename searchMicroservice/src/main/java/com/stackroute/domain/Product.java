@@ -17,6 +17,7 @@ public class Product {
     @Id
     //Product Id
     int id;
+    //Product name
     String productName;
     List<ProductDetails> details;
 
