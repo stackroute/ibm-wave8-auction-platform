@@ -21,7 +21,7 @@ export class HelpdeskComponent implements OnInit {
   }
   notification()
   {
-    alert("We will get back to you later.");
+    alert("We will get back to you soon. Thank You");
   }
 
 }
