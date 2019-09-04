@@ -19,6 +19,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SearchComponent } from './search/search.component';
 import { ForgotComponent } from './forgot/forgot.component';
+import { BiddingpageComponent } from './biddingpage/biddingpage.component';
+// import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,9 @@ import { ForgotComponent } from './forgot/forgot.component';
     RecommendationsComponent,
     WishlistComponent,
     SearchComponent,
-    ForgotComponent
+    ForgotComponent,
+    BiddingpageComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,8 @@ import { ForgotComponent } from './forgot/forgot.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    // FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
