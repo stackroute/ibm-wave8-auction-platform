@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 
-
+//Routing to direct new screen.
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:'/app-home'},
   {path:'app-home',component:HomeComponent},
