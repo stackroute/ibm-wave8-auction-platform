@@ -33,7 +33,6 @@ public class UserController {
         this.userService = userService;
     }
 
-
     @PostMapping("/user")
     public ResponseEntity addUser(@RequestBody User user) throws JsonProcessingException{
         ResponseEntity responseEntity;
@@ -53,6 +52,7 @@ public class UserController {
         }
         return responseEntity;
     }
+    
     @PostMapping("/rentItems/{email}")
     public ResponseEntity addRentItemsa(@RequestBody RentItems rentItems, @PathVariable(name = "email") String email) throws JsonProcessingException, UserNotFoundException {
         ResponseEntity responseEntity;
@@ -68,12 +68,9 @@ public class UserController {
         {
             responseEntity=new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);
         }
-
-
         return responseEntity;
-
-
     }
+    
     @GetMapping("/getAllUsers")
     public ResponseEntity getAllUsers(ModelMap model)
     {
@@ -83,6 +80,7 @@ public class UserController {
         responseEntity = new ResponseEntity<List<User>>(userList, HttpStatus.OK);
         return responseEntity;
     }
+    
    @GetMapping("/getRentItems/{email}")
     public ResponseEntity getAllItems(@PathVariable(name = "email") String email,ModelMap model)
    {
@@ -110,6 +108,7 @@ public class UserController {
         }
         return responseEntity;
     }
+    
     @PutMapping("/updateRentItems/{email}/{id}")
     public ResponseEntity updateRentItems(@PathVariable(name = "email") String email,@RequestBody RentItems rentItems,@PathVariable(name = "id") Long id) throws JsonProcessingException {
         ResponseEntity responseEntity;
@@ -119,6 +118,7 @@ public class UserController {
         model.put("message","Rent details updated successfully");
         return ok(model);
     }
+    
     @DeleteMapping("/delete/{email}")
     public ResponseEntity deleteUser(@PathVariable(name = "email") String email) throws UserNotFoundException {
         ResponseEntity responseEntity;
@@ -131,7 +131,6 @@ public class UserController {
             responseEntity=new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);
         }
         return responseEntity;
-
     }
 
     @DeleteMapping("/deleteRentItems/{email}/{id}")
@@ -142,5 +141,4 @@ public class UserController {
         responseEntity = new ResponseEntity<String>("Succesfully Deleted", HttpStatus.OK);
         return responseEntity;
     }
-
 }
