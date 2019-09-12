@@ -1,0 +1,25 @@
+
+ <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutGap="1%" fxLayoutAlign.xs="center center" fxLayoutWrap></div>
+
+  <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+  [animation]="'slide'">
+  <mdb-carousel-item *ngFor="let arrayOfProducts of slides; let i = index">
+    <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let product of arrayOfProducts, let cardIndex = index">
+      <mdb-card class="my-1">
+        <mdb-card-img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="Card image cap"></mdb-card-img>
+        <mdb-card-body>
+          <mdb-card-title>
+            <h4>{{product.itemName}}</h4>
+            </mdb-card-title>
+         
+          <p>{{product.itemDescription}}</p>
+          <button mdb-button (click)=addToWishList(product)>Add to Wishlist</button>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+
+  </mdb-carousel-item>
+
+
+</mdb-carousel>
+<button mdb-button type="button" (click)=click()>click me</button>
