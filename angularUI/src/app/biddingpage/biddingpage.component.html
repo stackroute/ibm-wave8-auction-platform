@@ -1,0 +1,94 @@
+
+<!--############################################################################3-->
+
+<section class="card">
+    <mat-card class="item-card" >
+            <mat-card-header>
+                   
+            </mat-card-header>
+    
+              <mat-card-content >
+                <h3 align="center">Owner: {{item.userName}}</h3>
+                <h3 align="center">{{item.userEmailId}}</h3>
+    
+                <img mat-card-image src="https://drop.ndtv.com/TECH/product_database/images/913201720152AM_635_iphone_x.jpeg" alt="Photo of a Shiba Inu">
+                
+                <h3>Item Id: {{item.itemId}}</h3>
+                <h3>Item Name: {{item.itemName}}</h3>
+    
+            </mat-card-content>
+           
+    </mat-card>
+    
+    <mat-card class="item-card" >
+      <mat-card-header>
+        
+      </mat-card-header>
+    
+        <mat-card-content class="cardContent">
+          <!-- <p align="left"><strong>Description: </strong>{{item.itemDescription}}</p> -->
+          <p align="left"><strong>Item Category: </strong>{{item.itemCategory}}</p>
+          <p align="left"><strong>Item Quantity: </strong>{{item.Quantity}}</p>
+          <p align="left"><strong>Duration for Rent: </strong>{{item.numberOfDaysForRent}} Days</p>
+          <p align="left"><strong>Base Rent: Rs </strong>{{item.itemBaseRent}}</p>
+          <p align="left"><strong>Minimum Bid Amount: Rs </strong>{{item.minimumBiddingAmount}}</p>
+          <p align="left"><strong>Current Bid Amount: Rs </strong></p>
+    
+          <p align="left" id="latest-bid" class="latestBid">{{item.latestBid}}</p>
+    
+    
+          <p align="left"><strong>No. of Days needed: </strong></p>
+    
+          <p align="left" id="latest-day">{{item.numberOfDaysNeeded}}</p>
+          
+          <p align="left"><strong>Time Left to bid: </strong>7 Days(demo)</p>
+          <!-- <p align="left">----------------------------------------------------------</p> -->
+        <div class="form-field" align="left">  <strong>Bid/Day: </strong>
+          
+          <mat-form-field>
+              <input matInput #yourBidInput placeholder="Amount" type="number" class="example-right-align" class="form-field" required>
+              <span matPrefix>$&nbsp;</span>
+              <span matSuffix>.00</span>
+            </mat-form-field>
+        </div>
+    
+        <div class="form-field" align="left">  <strong>No. of Days: </strong>
+          
+          <mat-form-field>
+              <input matInput #yourRentInput placeholder="Days" type="number" class="example-right-align" class="form-field" required>
+              <span matSuffix>Days</span>
+            </mat-form-field>
+        </div>
+    
+        <div class="form-field" align="left">  <strong>Bidder UserName: </strong>
+          
+          <mat-form-field>
+              <input matInput #yourUserName placeholder="userName" type="text" class="example-right-align" class="form-field" required>
+              <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+        </div>
+    
+        <div class="form-field" align="left">  <strong>Bidder Email Id: </strong>
+          
+          <mat-form-field>
+              <input matInput #yourEmailId placeholder="yourname@example.com" type="text" class="example-right-align" class="form-field" required>
+              <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+        </div>
+    
+        <div class="form-field" align="left">  <strong>Bidder Phone no.: </strong>
+          
+          <mat-form-field>
+              <input matInput #yourPhoneNo placeholder="phone No." type="number" class="example-right-align" class="form-field" required>
+              <span matPrefix>$&nbsp;</span>
+            </mat-form-field>
+        </div>
+    
+        <button mat-raised-button (click)="itemUpdater(yourBidInput.value, yourRentInput.value, yourUserName.value, yourEmailId.value, yourPhoneNo.value)" (click)="sendMessage1(yourBidInput.value,yourRentInput.value)" >BID!</button>
+    
+      </mat-card-content>
+     
+    </mat-card>
+    
+    
+    </section>

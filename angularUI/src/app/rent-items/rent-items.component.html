@@ -1,0 +1,62 @@
+<nav class="navbar">
+  <mat-toolbar >
+    <mat-toolbar-row >  
+            <div class="navbar-header">  
+                    <img src="./assets/auctionlogo.png" class="img-rounded" alt="auction-logo" width="50px" height="50px">
+                </div>
+        
+      <span id="branding" [routerLink]="['/landing']" (click)=check(username)>e-Auction</span>
+    </mat-toolbar-row>
+    </mat-toolbar>
+</nav>
+<script src="/__/firebase/6.6.0/firebase-app.js"></script>
+<script src="/__/firebase/init.js"></script>
+<section class="card">
+  <mat-card class="item-card">
+
+    <mat-card-content>
+      <form class="my-form" [formGroup]="rentitemsForm">
+
+        <span class="contents"><b>Tell us what you want to rent</b></span>
+        <div class="example-container">
+
+          <mat-form-field>
+            <input matInput placeholder="Name of the product" formControlName="itemName">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Quantity" name="quantity" type="number" formControlName="itemQuantity">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Rent Period" name="rentperiod" type="text"
+              formControlName="itemDurationOfRent">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Base Rent" name="bestrent" type="number" formControlName="baseRent">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Item Description" name="itemDescription" type="text"
+              formControlName="itemDescription">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select [(value)]="selectedValue" formControlName="itemCategory">
+              <mat-option value="Electronics" name="itemCategory">Electronics</mat-option>
+              <mat-option value="Car & Bike" name="itemCategory">Car & Bike</mat-option>
+              <mat-option value="Antique" name="itemCategory">Antique</mat-option>
+              <mat-option value="Fashion" name="itemCategory">Fashion</mat-option>
+              <mat-option value="Artifacts" name="itemCategory">Artifacts</mat-option>
+              <mat-option value="Jewellery" name="itemCategory">Jewellery</mat-option>
+            </mat-select>
+            <input type="hidden" formControlName="itemImageUrl">
+
+          </mat-form-field>
+          <input type="file" (change)="onFileSelected($event)">
+
+        </div>
+        <button mat-raised-button class="submit" (click)="submitRentItems()" class="center" selected
+          [disabled]="rentitemsForm.invalid">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>

@@ -1,0 +1,72 @@
+.item-card {
+    margin: 15px;
+    max-width: 350px;
+    max-height: 500px;
+    width: 350px;
+    height: 500px;
+    align-items: center;
+    background-color: rgb(194, 211, 243); 
+    position: static;    
+}
+
+
+
+.head-image
+{
+    background-image: url('https://drop.ndtv.com/TECH/product_database/images/913201720152AM_635_iphone_x.jpeg');
+  background-size: cover;
+}
+
+.item-card:hover {
+    box-shadow: 10px 10px 10px black;
+}
+
+button {
+    font-size: 30px;
+    margin: 5px;
+}
+
+.d-none {
+    display: none;
+}
+
+button:hover {
+    box-shadow: 5px 5px black;
+}
+
+.contents
+{
+    color: black;
+    
+}
+
+h3{
+    color: black;
+}
+
+.card{
+    display: inline-flex;
+    flex-wrap: wrap;
+    
+}
+
+h4{
+    color: black;
+}
+
+p{color: black;}
+
+.form-field
+{
+    color: black;
+}
+
+.cardContent{
+    font-size: 0.7em;
+}
+
+.card-container {
+    // flex-wrap: wrap;
+    padding-top: 125px;
+    padding-left: 75px;
+}
