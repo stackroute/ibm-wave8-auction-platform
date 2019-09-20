@@ -1,0 +1,117 @@
+.item-card {
+    margin: 15px;
+    max-width: 400px;
+    max-height: 630px;
+    width: 400px;
+    height: 630px;
+    align-items: center;
+    background-color: rgb(255, 255, 255); 
+    position: static;  
+    margin-left: 550px;
+    // margin-top: 10px;
+    margin-bottom:  30px;  
+    border: 3px solid #f1f1f1;
+}
+h2{
+    margin-left:75px; 
+}
+body{
+    background-image: url("../../assets/cool-background.png");
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+
+::placeholder
+{
+    color: black;
+}
+
+
+
+example-container {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    
+  }
+  
+  .example-container > * {
+    width: 100%;
+    color: black;
+  }
+
+.head-image
+{
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.item-card:hover {
+    box-shadow: 10px 10px 10px black;
+}
+
+button {
+    font-size: 30px;
+    margin: 5px;
+}
+
+.catsection
+{
+    color: black;
+    padding: 15px;
+    margin: auto;
+    font-size: 15px;
+    
+}
+
+.center{
+    margin-left:100px;
+}
+
+.d-none {
+    display: none;
+}
+
+button:hover {
+    box-shadow: 5px 5px black;
+}
+
+.contents
+{
+    color: black;
+    font-size: 15px;
+    
+}
+
+.card-container {
+    flex-wrap: wrap;
+    padding-top: 125px;
+    padding-left: 75px;
+}
+
+
+.card{
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding-top: 125px;
+    padding-left: 545px;
+    align-content: center;
+   
+
+    
+}
+.submit{
+    color: white;
+    background-color: rgb(44, 85, 95);
+}
+
+.form-field
+{
+    color: black;
+}

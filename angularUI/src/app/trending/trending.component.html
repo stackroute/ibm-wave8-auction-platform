@@ -1,0 +1,31 @@
+
+
+<section class="recommend">
+  <h2 id="new"><strong>Trending Items</strong></h2><br>
+<mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+[animation]="'slide'">
+<mdb-carousel-item *ngFor="let slide of userSlides; let i = index">
+  <div class="col-md-4" [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let item of slide; let cardIndex = index">
+    <mdb-card class="card">
+      <mdb-card-img class="itemImage" [src]="item.itemImageUrl" alt="Image Url"></mdb-card-img>
+      <mdb-card-body class="body">
+
+          <br><br><br><br><br><br>
+          <h5 class="names">{{item.itemCategory}}</h5>
+          <h5 >{{item.itemName}}</h5>
+          <h5 >{{item.itemDescription}}</h5>
+          <h5 >{{item.latestBid}}</h5>
+     
+        <!-- <p>{{item.itemDescription}}</p> -->
+        <!-- <button mdb-button (click)=addToWishList(product)>Add to Wishlist</button> -->
+        <a mdbBtn color="info" rounded="true" mdbWavesEffect [routerLink]="['/biddingpage']">Bid</a>
+      </mdb-card-body>
+     
+    </mdb-card>
+  </div>
+</mdb-carousel-item>
+</mdb-carousel>
+
+</section>
+
+

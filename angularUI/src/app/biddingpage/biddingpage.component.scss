@@ -1,0 +1,164 @@
+.item-card {
+    margin: 15px;
+    max-width: 350px;
+    max-height: 500px;
+    width: 350px;
+    height: 500px;
+    align-items: center;
+    background-color: rgb(194, 211, 243);
+    position: static;
+ }
+ .head-image
+ {
+    background-image: url('https://drop.ndtv.com/TECH/product_database/images/913201720152AM_635_iphone_x.jpeg(11 kB)');
+  background-size: cover;
+ }
+ .item-card:hover {
+    box-shadow: 10px 10px 10px black;
+ }
+ button {
+    font-size: 30px;
+    margin: 5px;
+ }
+ .d-none {
+    display: none;
+ }
+ button:hover {
+    box-shadow: 5px 5px black;
+ }
+ .contents
+ {
+    color: black;
+ }
+ h3{
+    color: black;
+ }
+ .card{
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top:140px;
+    margin-left: 150px;
+ }
+ .card1
+ {
+    display: inline-flex;
+    // flex-wrap: wrap;
+    // margin-top:110px;
+    // margin-bottom:10px;
+    padding-top:80px;
+    margin-bottom: 10px;
+ }
+ .card2
+ {
+    display: inline-flex;
+    // flex: wrap;
+ }
+ h6{
+    margin: 30px;
+ }
+ h4{
+    color: black;
+ }
+ p{color: black;}
+ .form-field
+ {
+    color: black;
+ }
+ .cardContent{
+    font-size: 0.7em;
+ }
+ .card-container {
+    // flex-wrap: wrap;
+    padding-top: 125px;
+    padding-left: 75px;
+ }
+ //f========================
+ #branding {
+    font-size: 25px;
+    cursor: progress;
+    padding-left: 10px;
+    color: black;
+ }
+ .navbar-header
+ {
+    margin-top:auto;
+ }
+ .navbar1{
+  flex-wrap: wrap;
+  align-items: center;
+ //   justify-content: space-between;
+    margin-top:-10px;
+    position:fixed;
+    max-width: 100%;
+    display:flex;
+    z-index:9;
+   overflow-x:hidden;
+   flex: 1 1 auto;
+ }
+ .txt-center {
+    padding-left: 200px;
+ }
+ .search-center
+ {
+    padding-left: 200px;
+    margin: auto;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+ }
+ .secondnav
+ {   color: white;
+    background-color: black;
+    height: 2px;
+   // width:100%;
+    min-width:100vw;
+    display:block;
+   margin-left:0px;
+ }
+ .nav{
+    max-height: 20px;
+    min-height: 10px;
+ }
+ .category{
+    font-size: 20px;
+ }
+ .recommend
+ {
+    font-size: 20px;
+ }
+ .searchbox {
+    width: 100%;
+  }
+ .span1{
+    padding-right: 20px;
+ }
+ .navLinks {
+    font-size: 1.00rem;
+    cursor: pointer;
+ }
+ mat-chip {
+    padding: 1.25rem;
+ }
+ .pipes {
+    transform: rotate(90deg);
+    padding: 0%;
+    margin: 0%;
+ }
+ mat-chip:hover {
+    box-shadow: 2.5px 5p black;
+ }
+ mat-form-field {
+    font-size: 15px;
+    margin: auto;
+    color: black;
+ }
+ mat-form-field-appearance{
+    border-block-color:black;
+ }
+ mat-form-field > input{
+    border-radius: 10px;
+ }
+ mat-toolbar{
+    background-color: white;
+ }
+ 
