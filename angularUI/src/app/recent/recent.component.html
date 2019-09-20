@@ -1,0 +1,81 @@
+<!--
+ Section: Blog v.2 
+<section class="first">
+
+  <h2 class="h1-responsive font-weight-bold my-5">Recently Added</h2>
+  <p class="dark-grey-text w-responsive mx-auto mb-5">These are the products that are recently added which you may like</p>
+
+  <div class="row">
+    <div *ngFor="let slide of userSlides; let i = index">
+    <div class="col-lg-4 col-md-12 mb-lg-0 mb-4"  [ngClass]="{'d-none d-md-block': cardIndex !== 0}" *ngFor="let item of slide; let cardIndex = index">
+<div class="row">
+      < Featured image "view overlay rounded z-depth-2 mb-4 waves-light" 
+      <div  class="col-lg-4 col-md-12 mb-lg-0 mb-4" mdbWavesEffect>
+        <mdb-card class="card">
+          <mdb-card-img class="itemImage" [src]="item.itemImageUrl" alt="Image Url"></mdb-card-img>
+      <mdb-card-body class="body">
+      <a href="#!" class="pink-text">
+        <h6 class="font-weight-bold mb-3"><mdb-icon far icon="map" class="pr-2"></mdb-icon>{{item.itemCategory}}</h6>
+      </a>
+      <h4 class="font-weight-bold mb-3"><strong>{{item.itemName}}</strong></h4>
+       <p>by <a class="font-weight-bold">Billy Forester</a>, 15/07/2018</p> -->
+      <!-- Excerpt 
+      <p class="dark-grey-text">{{item.itemDescription}}</p>
+       Read more button -->
+      <!-- <a mdbBtn color="pink" rounded="true" mdbWavesEffect>Bid</a> 
+    </mdb-card-body>
+  </mdb-card>
+   
+ </div></div>
+ </div>
+ </div>
+  </div>
+   
+</section>
+
+
+ -->
+
+
+
+
+
+
+
+<section class="recommend">
+  <h2 id="new"><strong>Recent Items</strong></h2>
+  <br>
+<!-- <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+[animation]="'slide'">
+<mdb-carousel-item *ngFor="let slide of userSlides; let i = index"> -->
+  
+      <div *ngFor="let slide of userSlides; let i = index">
+          <div class="row">
+  <div class="col-md-4"  *ngFor="let item of slide">
+    <mdb-card class="card">
+      <mdb-card-img class="itemImage" [src]="item.itemImageUrl" alt="Image Url"></mdb-card-img>
+      <mdb-card-body class="body">
+
+        <mdb-card-title >
+          <h5 style="padding-top:180px;">{{item.itemCategory}}</h5>
+          <h5 style="padding-top:5px;">{{item.itemName}}</h5>
+          <h5 style="padding-top:5px;">{{item.itemDescription}}</h5>
+          <h5 style="padding-top:5px;">{{item.latestBid}}</h5>
+         
+        </mdb-card-title>
+        <a mdbBtn color="info" rounded="true" mdbWavesEffect [routerLink]="['/biddingpage']">Bid</a>
+        <!-- <p>{{item.itemDescription}}</p> -->
+        <!-- <button mdb-button (click)=addToWishList(product)>Add to Wishlist</button> -->
+        
+      </mdb-card-body>
+     
+    </mdb-card>
+  </div>
+</div></div>
+
+<!-- </mdb-carousel-item>
+</mdb-carousel> -->
+
+</section>
+
+

@@ -1,0 +1,51 @@
+// .first
+// {
+//     overflow-x:hidden;
+//     text-align: center;
+//     background-color: #ffbe;
+//     width:100%;
+//     margin-left:-25px;
+//     margin-top:20px;
+// }
+// .card
+// {
+//     height:400px;
+//     width:400px;
+// }
+
+
+
+.recommend
+{
+    text-align: center;
+    margin-top:30px;
+    //overflow-x:hidden;  
+    background-color:white;
+    height:600px;
+    width:100%;
+    
+}
+.card
+{
+    height:470px;
+    max-height: 500px;
+    width:350px;
+    overflow-y:hidden;
+    margin-left: 70px;
+}
+
+h2
+{
+    margin-top: 20px; 
+}
+.body
+{
+    height:300px;
+    width:200px;
+}
+
+.itemImage
+{
+    height: 80px;
+    max-height: 100px;
+}

@@ -1,0 +1,51 @@
+.item-card {
+    margin: 100px;
+     width: 300px;
+    height: 500px;
+    align-items: center;
+    background-color: rgb(194, 211, 243); 
+    position: static; 
+         }
+  
+  .item-card:hover {
+    box-shadow: 10px 10px 10px black;
+  }
+  
+  button {
+    font-size: 20px;
+    margin: 5px;
+  }
+  
+  .d-none {
+    display: none;
+  }
+  
+  button:hover {
+    box-shadow: 5px 5px black;
+  }
+  
+  .contents
+  {
+    color: black;
+    
+  }
+  
+  h3{
+    color: black
+  }
+  
+  .card{
+    flex-wrap: wrap;
+    padding-top: 120px;
+  }
+  .text1{
+    color: black;
+    background-color:grey;
+  }
+section{
+    flex-wrap: wrap;
+  }
+  div
+  {
+flex-wrap: wrap
+  }
