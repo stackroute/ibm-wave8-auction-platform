@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.invalidLogin = true
-        window.confirm("Either yor email or password is incorrect ");
+        // window.confirm("Either yor email or password is incorrect ");
       }
     )
     );

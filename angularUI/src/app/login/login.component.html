@@ -1,4 +1,6 @@
 <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 <!--############################################################################3-->
 <nav class="navbar">
    
@@ -11,7 +13,7 @@
    
 </nav>
 
-    <mat-card class="item-card" >
+    <mat-card class="item-card animated pulse" >
       <mat-card-header>
         
       </mat-card-header>
@@ -32,9 +34,11 @@
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
+                    
                   </mat-form-field>
                       </div>
-    
+                      <span class="errorMessage" *ngIf="invalidLogin">Either yor email or password is incorrect</span>
+                      
         <button mat-raised-button class="Submit" (click)="checkLogin(username.value, password.value)">Login</button>
 
         <div>

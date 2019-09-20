@@ -66,8 +66,9 @@ export class BiddingpageComponent implements OnInit {
           this.bidAmount = this.bidAmount.split("-");
 
           // console.log(this.bidAmount);
-
+          
           document.getElementById('latest-bid').innerHTML = this.bidAmount[1];
+          
 
           document.getElementById('latest-day').innerHTML = this.bidAmount[2];
         }
@@ -87,6 +88,20 @@ export class BiddingpageComponent implements OnInit {
 
 
   }
+
+  animateCSS(element, animationName, callback) {
+    const node = document.querySelector(element)
+    node.classList.add('animated', animationName)
+
+    function handleAnimationEnd() {
+        node.classList.remove('animated', animationName)
+        node.removeEventListener('animationend', handleAnimationEnd)
+
+        if (typeof callback === 'function') callback()
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd)
+}
 
 
 
