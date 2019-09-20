@@ -1,0 +1,22 @@
+
+    <section class="card"
+    fxLayout
+    fxLayout.sm="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0"> 
+      
+    
+      <mat-card  class="item-card" *ngFor="let d of sortedItems">
+            <mat-card-header >   
+            <mat-card-title class="text">Item Id:{{d.itemid}}</mat-card-title>
+            <mat-card-title class="text">Item Name:{{d.itemName}}</mat-card-title>
+            <mat-card-title class="text">Item Description:{{d.itemDescription}}</mat-card-title>
+             </mat-card-header>
+             <img mat-card-image class="img" src="d.itemImageUrl">
+             <mat-card-actions>
+            <button mat-button class="text1" [routerLink]="['/biddingpage']">BID </button>
+             </mat-card-actions> 
+      </mat-card>
+       
+  </section> 

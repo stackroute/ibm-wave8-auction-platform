@@ -1,0 +1,21 @@
+.text-align:center
+{
+    overflow-x: hidden;
+}
+.head
+{
+    text-align: center;
+    color:black;
+    top:30px;
+    margin-top:50px;
+}
+#barChart,#pieChart
+{
+    margin-left: -300px;
+    height: 200px;
+}
+#lineChart
+{
+    margin-left: 50px;
+    height: 200px;
+}

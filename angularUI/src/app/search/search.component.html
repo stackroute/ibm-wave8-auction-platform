@@ -1,0 +1,17 @@
+<section class="card" fxLayout fxLayout.sm="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div class="item-card" *ngFor="let user of productList">
+    <mat-card *ngFor="let rentItem of user.rentItems">
+      <mat-card-header>
+        <mat-card-title class="text">ITEM ID: {{rentItem.itemid}}</mat-card-title><br>
+        <mat-card-title class="text">ITEM ID: {{rentItem.itemName}}</mat-card-title><br>
+      </mat-card-header>
+      <mat-card-title class="text">ITEM NAME: {{rentItem.itemName}}</mat-card-title><br>
+      <mat-card-title class="text">DESCRIPTION: {{rentItem.itemDescription}}</mat-card-title><br>
+      <mat-card-title class="text">OWNER: {{user.userName}}</mat-card-title><br>
+      <img mat-card-image class="img" src="{{rentItem.itemImageUrl}}">
+      <mat-card-actions>
+        <button mat-button class="text1" [routerLink]="['/biddingpage']">BID </button>
+      </mat-card-actions>
+    </mat-card> 
+  </div>
+</section>
