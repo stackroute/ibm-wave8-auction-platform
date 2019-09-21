@@ -1,0 +1,170 @@
+
+<!--############################################################################3-->
+<!-- <app-header></app-header> -->
+
+
+<header> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <nav class="navbar1">
+    <mat-toolbar >
+      <mat-toolbar-row >  
+              <div class="navbar-header">  
+                      <img src="./assets/auctionlogo.png" class="img-rounded" alt="auction-logo" width="50px" height="50px">
+                  </div>
+          
+        <span id="branding" selected selected [routerLink]="['/landingPage']">e-Auction</span>
+
+          <section class="search-center">
+              <!-- <mat-form-field appearance="standard" class="searchbox">
+                  <mat-label>Search</mat-label>
+                  <input matInput placeholder="what are you looking for" (input)="clickSearch($event.target.value)">
+                  <mat-icon matSuffix>search</mat-icon>
+                  
+              </mat-form-field> -->
+              <mat-form-field appearance="outline">
+                  <mat-label>Search</mat-label>
+                  <input matInput placeholder="enter specific cause" #name (keyup.enter)="search(name.value)" >
+                  <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+          </section>
+        <section class="txt-center">
+
+          <mat-chip-list>
+            <mat-chip  class="navLinks" selected [routerLink]="['/helpdesk']" >HelpDesk</mat-chip>
+            <mat-icon class="pipes">remove</mat-icon>
+         
+
+          <mat-chip mat-chip [matMenuTriggerFor]="menu1" class="navLinks" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>{{username}}</mat-chip><mat-icon>arrow downward</mat-icon>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item (click)="profile(username.value)"> My Account</button>
+          <button mat-menu-item (click)="uploadRentItems(username.value)">Rent Items</button>
+          <button mat-menu-item [routerLink]="['/logout']">Logout</button>
+        </mat-menu>
+
+      </mat-chip-list>
+
+        </section>
+
+      </mat-toolbar-row></mat-toolbar>
+
+      <mat-toolbar class="secondnav">              
+         <mat-toolbar-row >
+              <button class="category" mat-button [matMenuTriggerFor]="menu">Categories</button>
+              <mat-menu #menu="matMenu">
+              <button mat-menu-item>Car & Bike</button>
+              <button mat-menu-item>Jewellery</button>
+              <button mat-menu-item>Artifacts</button>
+              <button mat-menu-item>Electronics</button>
+           </mat-menu>
+           <button class="recommend" mat-button routerLink='/favs'>Wishlist</button>
+              </mat-toolbar-row>
+    </mat-toolbar>
+  </nav>
+</header>
+
+<section class="card">
+    <mat-card class="item-card" >
+            
+    
+              <mat-card-content >
+                <h3 align="center">Owner: {{item.userName}}</h3>
+                <h3 align="center">{{item.userEmailId}}</h3>
+    
+                <img mat-card-image src="../../assets/bike.jpeg" alt="Photo of a Shiba Inu">
+                
+                <h3>Item Id: {{item.itemId}}</h3>
+                <h3>Item Name: {{item.itemName}}</h3>
+    
+            </mat-card-content>
+           
+    </mat-card>
+</section>
+<section class="card1">
+    <mat-card class="item-card" >
+        
+        <mat-card-content class="cardContent">
+          <!-- <p align="left"><strong>Description: </strong>{{item.itemDescription}}</p> -->
+          <h6 align="left"><strong>Item Category: </strong>{{item.itemCategory}}</h6>
+          <h6 align="left"><strong>Item Quantity: </strong>{{item.Quantity}}</h6>
+          <h6 align="left"><strong>Duration for Rent: </strong>{{item.numberOfDaysForRent}} Days</h6>
+          <h6 align="left"><strong>Base Rent: Rs </strong>{{item.itemBaseRent}}</h6>
+          <h6 align="left"><strong>Minimum Bid Amount: Rs </strong>{{item.minimumBiddingAmount}}</h6>
+          <h6 align="left"><strong>Current Bid Amount: Rs </strong></h6>
+    
+          <h6 align="left" id="latest-bid" class="latestBid">{{item.latestBid}}</h6>
+    
+    
+          <h6 align="left"><strong>No. of Days needed: </strong></h6>
+    
+          <h6 align="left" id="latest-day">{{item.numberOfDaysNeeded}}</h6>
+          
+          <h6 align="left"><strong>Time Left to bid: </strong>3 Days</h6>
+          <!-- <p align="left">----------------------------------------------------------</p> -->
+        <!-- <div class="form-field" align="left">  <strong>Bid/Day: </strong> -->
+          
+         
+      </mat-card-content>
+     
+    </mat-card>
+    
+    
+    </section>
+
+        <section class="card2">
+            <mat-card class="item-card" >
+                
+                <mat-card-content class="cardContent">
+
+                    <mat-form-field>
+                        <span matPrefix>Bid/Day:</span> 
+                        <input matInput #yourBidInput placeholder="Amount" type="number" class="example-right-align" class="form-field" required>
+                        <span matPrefix>$&nbsp;</span>
+                        <span matSuffix>.00</span>
+                      </mat-form-field>
+                  <!-- </div> -->
+              
+                  <!-- <div class="form-field" align="left">  <strong>No. of Days: </strong> -->
+                    
+                    <mat-form-field>
+                       <span matPrefix> No. of Days: </span>
+                        <input matInput #yourRentInput placeholder="Days" type="number" class="example-right-align" class="form-field" required>
+                        <span matSuffix>Days</span>
+                      </mat-form-field>
+                  <!-- </div> -->
+              
+                  <!-- <div class="form-field" align="left">  <strong>Bidder UserName: </strong> -->
+                    
+                    <mat-form-field>
+                        <span matPrefix> Bidder UserName:</span>
+                        <input matInput #yourUserName placeholder="userName" type="text" class="example-right-align" class="form-field" required>
+                        <span matPrefix>$&nbsp;</span>
+                      </mat-form-field>
+                  <!-- </div> -->
+              
+                  <!-- <div class="form-field" align="left">  <strong>Bidder Email Id: </strong> -->
+                    
+                    <mat-form-field>
+                        <span matPrefix>Bidder Email Id: </span>
+                        <input matInput #yourEmailId placeholder="yourname@example.com" type="text" class="example-right-align" class="form-field" required>
+                        <span matPrefix>$&nbsp;</span>
+                      </mat-form-field>
+                  <!-- </div> -->
+              
+                  <!-- <div class="form-field" align="left">  <strong>Bidder Phone no.: </strong> -->
+                    
+                    <mat-form-field>
+                        <span matPrefix>Bidder Phone no.:</span>
+                        <input matInput #yourPhoneNo placeholder="phone No." type="number" class="example-right-align" class="form-field" required> 
+                        <span matPrefix>$&nbsp;</span>
+                      </mat-form-field>
+                  <!-- </div> -->
+              
+                  <button class="button1" mat-raised-button (click)="itemUpdater(yourBidInput.value, yourRentInput.value, yourUserName.value, yourEmailId.value, yourPhoneNo.value)" (click)="sendMessage1(yourBidInput.value,yourRentInput.value)">BID!</button>
+              
+
+                  </mat-card-content>
+     
+                </mat-card>
+                
+                
+                </section>
