@@ -1,17 +1,65 @@
+// .item-card {
+//     // margin: 55px;
+//     max-width: 400px;
+//     max-height: 630px;
+//     width: 400px;
+//     height: 630px;
+//     align-items: center;
+//     background-color: rgb(246, 246, 246); 
+//     position: static;  
+//     margin-left: 550px;
+//     // margin-top: 10px;
+//     // margin-bottom:  130px;  
+//     border: 3px solid #f1f1f1;
+// }
+
 .item-card {
-    // margin: 55px;
-    max-width: 400px;
+    margin: 15px;
+    max-width: 450px;
     max-height: 630px;
-    width: 400px;
-    height: 630px;
+    // width: 400px;
+    // height: 450px;
     align-items: center;
-    background-color: rgb(246, 246, 246); 
-    position: static;  
-    margin-left: 550px;
-    // margin-top: 10px;
-    // margin-bottom:  130px;  
+    background-color: rgb(246, 246, 246);
+    position: static;
+    text-align: center;
+    // margin-left: 550px;
+    margin-top: 6em;
+    margin-bottom: 50px;
     border: 3px solid #f1f1f1;
-}
+    flex:1;
+    @media screen and (min-width: 1023px){
+        margin-left: 17rem;
+  }
+ }
+ 
+ .container  {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .container .row {
+    margin: 0 auto;
+ }
+ .flex-container
+ {
+    @media screen and (min-width: 640px){
+        display: flex;
+        flex:1;
+ }
+ }
+
+
+
+
+
+
+
+
+
 h2{
     margin-left:75px; 
 }
@@ -109,6 +157,7 @@ button:hover {
 .submit{
     color: white;
     background-color: rgb(44, 85, 95);
+    // margin-right: 100px;
 }
 
 .form-field
