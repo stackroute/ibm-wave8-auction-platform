@@ -10,7 +10,7 @@ export class StatsComponent implements OnInit {
 
   BarChart:any;
   LineChart:any;
-PieChart:any;
+  PieChart:any;
   constructor() { }
 
   ngOnInit(){

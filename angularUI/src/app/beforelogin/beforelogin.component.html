@@ -1,55 +1,61 @@
-  
-  <nav class="navbar1 ">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <mat-toolbar >
-      <mat-toolbar-row >  
-              <div class="navbar-header">  
-                      <img src="./assets/auctionlogo.png" class="img-rounded" alt="auction-logo" width="50px" height="50px">
-                  </div>
+  <nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-header">  
+                <img src="./assets/auctionlogo.png" class="img-rounded" alt="auction-logo" width="50px" height="50px">
+         </div>
+    
+         <span class="animated bounce delay-1s" id="branding" [routerLink]="['/landing']">e-Auction</span>
           
-        <span class="animated bounce delay-1s" id="branding" [routerLink]="['/landing']">e-Auction</span>
-                     
-        <section class="search-center">
-          <!-- <mat-form-field appearance="standard" class="searchbox">
-              <mat-label>Search</mat-label>
-              <input matInput placeholder="what are you looking for" (input)="clickSearch($event.target.value)">
-              <mat-icon matSuffix>search</mat-icon>
-              
-          </mat-form-field> -->
-          <mat-form-field appearance="outline">
-              <mat-label>Search</mat-label>
-              <input matInput placeholder="What are you looking for " #name (keyup.enter)="search(name.value)" >
-              <mat-icon matSuffix>search</mat-icon>
-            </mat-form-field>
-      </section>
+         <div class="collapse navbar-collapse "  id="navbarTogglerDemo01" [ngClass]="{'show':navbarOpen}">
+   
+           <form class="form-inline my-2 my-lg-0" id="search">
+           <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search">
+           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+         </form>
+         <div ngbDropdown class="d-inline-block" id="search">
+         <span  id="dropdownBasic1" ngbDropdownToggle>Categories</span>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem (click)="searchCategory('Car & Bike')">Car & Back</button>
+                        <button ngbDropdownItem  (click)="searchCategory('Jewellery')" >Jewellery</button>
+                        <button ngbDropdownItem (click)="searchCategory('Artifacts')">Artifacts</button>
+                        <button ngbDropdownItem  (click)="searchCategory('Electronics')">Electronics</button>
+                        <button ngbDropdownItem (click)="searchCategory('Fashion')">Fashion</button>
+                      </div>
+         </div>
+                
+         <ul class="navbar-nav mr-auto">
 
-        <section class="txt-center">
+            
+                <li class="nav-item" >
+                        <a class="nav-link" class="button"  routerLink="/helpdesk">Help Desk</a>
+                </li>
+                 <button class="nav-items ">
+                        <a class="nav-link animated shake" routerLink="/login">Login</a>
+                 </button>
 
-          <mat-chip-list>
-            <mat-chip *ngIf="!loggedIn" class="animated shake delay-1s" selected [routerLink]="['/login']">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>  Login/SignUp
-            </mat-chip>
+                   <li class="nav-item">
+                    <div class="row">
+                      <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                    <!-- <button class="btn btn-outline-success" id="dropdownBasic1" ngbDropdownToggle>Categories</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem (click)="searchCategory('Car & Bike')">Car & Back</button>
+                        <button ngbDropdownItem  (click)="searchCategory('Jewellery')" >Jewellery</button>
+                        <button ngbDropdownItem (click)="searchCategory('Artifacts')">Artifacts</button>
+                        <button ngbDropdownItem  (click)="searchCategory('Electronics')">Electronics</button>
+                        <button ngbDropdownItem (click)="searchCategory('Fashion')">Fashion</button>
+                      </div> -->
+                      </div>
+                      </div>
+                      </div>
+                 </li>
+         </ul>       
+  </div>
 
-          </mat-chip-list>
 
-        </section> 
 
-      </mat-toolbar-row></mat-toolbar>
-
-      <mat-toolbar class="secondnav">
-
-              <mat-toolbar-row >
-              <button class="category" mat-button [matMenuTriggerFor]="menu">Categories</button>
-              <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="searchCategory('Car & Bike')">Car & Bike</button>
-              <button mat-menu-item (click)="searchCategory('Jewellery')">Jewellery</button>
-              <button mat-menu-item (click)="searchCategory('Artifacts')">Artifacts</button>
-              <button mat-menu-item (click)="searchCategory('Electronics')">Electronics</button>
-           </mat-menu>
-           <!-- <button class="recommend" mat-button  selected [routerLink]="['/recommendations']">My Recommendations</button>
-           <button class="recommend" mat-button routerLink='/favs'>Wishlist</button> -->
-              </mat-toolbar-row>
-    </mat-toolbar>
-  </nav>
-
+  
+</nav>
 
