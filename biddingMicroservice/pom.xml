@@ -3,13 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.onlinetutorialspoint</groupId>
-	<artifactId>SpringBoot-Redis-Example</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>bidding-service</artifactId>
 	<packaging>jar</packaging>
-
-	<name>SpringBoot-Redis-Example</name>
-	<description>DSpring Boot Redis Example</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -30,7 +25,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
-			<version>2.1.6.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -59,15 +53,6 @@
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
-
-<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.kafka</groupId>-->
-<!--			<artifactId>spring-kafka</artifactId>-->
-<!--			<version>2.2.8.RELEASE</version>-->
-<!--		</dependency>-->
-
-
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>

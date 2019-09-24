@@ -1,4 +1,4 @@
-FROM openjdk:11.0.3
-ADD ./target/spring-boot-neo4j-example-1-0.0.1-SNAPSHOT.jar spring-boot-neo4j-example-1-0.0.1-SNAPSHOT.jar
+FROM openjdk:11
+ADD ./target/recommendation-service-2.1.6.RELEASE.jar app.jar
 EXPOSE 8084
-ENTRYPOINT ["java", "-jar", "spring-boot-neo4j-example-1-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
